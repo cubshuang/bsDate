@@ -1,3 +1,7 @@
+/*
+    日期函數bsDate
+    https://github.com/cubshuang/bsDate
+*/
 var bsDate = {
     Now: new Date(),
     Year: function() {return this.Now.getFullYear();},
@@ -33,5 +37,7 @@ var bsDate = {
     getMonthDate:function(addmth,pos){ var d = new Date(this.Year(),this.Month()+addmth+((pos)?1:0),1); return (pos)?this.DateToString(d.setDate(d.getDate()-1)):this.DateToString(d);},
     getQuaterDate:function(addqrt,pos){ var d = new Date(this.Year(),this.Month()-1+(addqrt+((pos)?1:0))*3,1); return (pos)?this.DateToString(d.setDate(d.getDate()-1)):this.DateToString(d);},
     getYearDate:function(addyear,pos){ var d = new Date(this.Year()+addyear+((pos)?1:0),0,1); return (pos)?this.DateToString(d.setDate(d.getDate()-1)):this.DateToString(d);},
-    DateToString: function (showDate) { var d = new Date(showDate); return d.getFullYear() + "/" + (d.getMonth() + 1) + "/" + d.getDate();}
+    DateToString: function (showDate) { var d = new Date(showDate); return d.getFullYear() + "/" + (d.getMonth() + 1) + "/" + d.getDate();},
+    DateToCH: function (showDate, hasFilter) { var d = new Date(showDate); return (d.getFullYear() - 1911) + (hasFilter) ? "/" : "" + (d.getMonth() + 1) + (hasFilter) ? "/" : "" + d.getDate(); },
+    DateToCH: function (showDate) { DateToCH(showDate,true) }
 }
