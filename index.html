@@ -65,6 +65,11 @@
 				s+="<td>次年年初</td><td>" + bsDate.NextYear_Begin() + "</td>"; 
 				s+="<td>次年年底</td><td>" + bsDate.NextYear_End() + "</td>"; 
 				s+="</tr>";
+				s+="<tr>";
+				s+="<td>民國格式</td><td>" + bsDate.DateToCH(d) + "</td>"; 
+				s+="<td>民國格式</td><td>" + bsDate.DateToCHStr(d) + "</td>"; 
+				s+="</tr>";
+				s+="</table>";
 				s+="</table>";
 			}
 			document.getElementById("bsDiv").innerHTML=s;
