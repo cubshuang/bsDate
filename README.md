@@ -18,8 +18,8 @@ var d=document.getElementById("today").value;
 bsDate.setDate(d);
 ```
 
-## 測試畫面
-![](img/bsDate.png?raw=true)
+## Demo
+* [日期函數bsDate](https://cubshuang.github.io/bsDate/)
 
 
 ### 相關參數
