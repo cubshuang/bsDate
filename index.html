@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<script src="bsDate.js"></script>
+<style>
+	tr:nth-of-type(1) td:nth-of-type(1){ background-color:#FF80C0;}
+	tr:nth-of-type(1) td:nth-of-type(2){ color:#FF3E3E;}
+	td{padding:10px;}
+	td:nth-of-type(odd){ background-color:#0079F2;}
+	td:nth-of-type(even){ background-color:#FFFFD9;}
+	body{margin:20px;}
+</style>
+<body>
+<h2>日期函數bsDate</h2>
+<p>
+	<label for="today">日期設定：</label>
+	<input type="text" id="today">
+	<input type="button" id="btnQry" value="查詢">
+</p>
+<div id="bsDiv"></div>
+<script>
+	document.getElementById("today").value=bsDate.Today();
+	getBsDate();
+	document.getElementById("btnQry").onclick=function(){
+		getBsDate();
+	};
+	function getBsDate(){
+		try{
+			var s="";
+			var d=document.getElementById("today").value;
+			bsDate.setDate(d);
+			if (d!=bsDate.Today()){
+				document.getElementById("today").focus();
+				s+="日期輸入有誤!!請重新輸入!!"
+			}else{
+				s+="<table>";
+				s+="<tr>";
+				s+="<td>當日</td><td>" + bsDate.Today() + "</td>"; 
+				s+="<td>前一日</td><td>" + bsDate.LastDay() + "</td>"; 
+				s+="<td>次日</td><td>" + bsDate.NextDay() + "</td>"; 
+				s+="<td>上周一</td><td>" + bsDate.LastMonday() + "</td>"; 
+				s+="<td>本周一</td><td>" + bsDate.ThisMonday() + "</td>"; 
+				s+="<td>下周一</td><td>" + bsDate.NextMonday()+ "</td>"; 
+				s+="</tr>";
+				s+="<tr>";
+				s+="<td>上月月初</td><td>" + bsDate.LastMonth_Begin() + "</td>"; 
+				s+="<td>上月月底</td><td>" + bsDate.LastMonth_End() + "</td>"; 
+				s+="<td>上季季初</td><td>" + bsDate.LastQuater_Begin() + "</td>"; 
+				s+="<td>上季季底</td><td>" + bsDate.LastQuater_End() + "</td>";
+				s+="<td>去年年初</td><td>" + bsDate.LastYear_Begin() + "</td>";
+				s+="<td>去年年底</td><td>" + bsDate.LastYear_End() + "</td>";
+				s+="</tr>";
+				s+="<tr>";
+				s+="<td>本月月初</td><td>" + bsDate.ThisMonth_Begin() + "</td>"; 
+				s+="<td>本月月底</td><td>" + bsDate.ThisMonth_End() + "</td>"; 
+				s+="<td>本季季初</td><td>" + bsDate.ThisQuater_Begin() + "</td>"; 
+				s+="<td>本季季底</td><td>" + bsDate.ThisQuater_End() + "</td>"; 
+				s+="<td>本年年初</td><td>" + bsDate.ThisYear_Begin() + "</td>"; 
+				s+="<td>本年年底</td><td>" + bsDate.ThisYear_End() + "</td>"; 
+				s+="</tr>";
+				s+="<tr>";
+				s+="<td>下月月初</td><td>" + bsDate.NextMonth_Begin() + "</td>"; 
+				s+="<td>下月月底</td><td>" + bsDate.NextMonth_End() + "</td>"; 
+				s+="<td>次季季初</td><td>" + bsDate.NextQuater_Begin() + "</td>"; 
+				s+="<td>次季季底</td><td>" + bsDate.NextQuater_End() + "</td>"; 
+				s+="<td>次年年初</td><td>" + bsDate.NextYear_Begin() + "</td>"; 
+				s+="<td>次年年底</td><td>" + bsDate.NextYear_End() + "</td>"; 
+				s+="</tr>";
+				s+="</table>";
+			}
+			document.getElementById("bsDiv").innerHTML=s;
+		}catch(e){
+			alert(e);
+		}
+	}
+</script>
+</body>
+</html>
