@@ -39,5 +39,6 @@ var bsDate = {
     getYearDate:function(addyear,pos){ var d = new Date(this.Year()+addyear+((pos)?1:0),0,1); return (pos)?this.DateToString(d.setDate(d.getDate()-1)):this.DateToString(d);},
     DateToString: function (showDate) { var d = new Date(showDate); return d.getFullYear() + "/" + (d.getMonth() + 1) + "/" + d.getDate();},
     DateToCH: function (showDate) { var d = new Date(showDate); return (d.getFullYear() - 1911) + "/" + (d.getMonth() + 1) + "/" + d.getDate(); },
-    DateToCHStr: function (showDate) { var s = this.DateToCH(showDate).split("/"); return (s[0].length > 2 ? "" : "0") + s[0] + (s[1].length > 1 ? "" : "0") + s[1] + (s[2].length > 1 ? "" : "0") + s[2]; }
+    DateToCHStr: function (showDate) { var s = this.DateToCH(showDate).split("/"); return (s[0].length > 2 ? "" : "0") + s[0] + (s[1].length > 1 ? "" : "0") + s[1] + (s[2].length > 1 ? "" : "0") + s[2]; },
+    RndNum: function () { var d = new Date(); return d.getFullYear().toString() + d.getMonth().toString() + d.getDate().toString() + d.getHours().toString() + d.getMinutes().toString() + d.getSeconds().toString() + d.getMilliseconds().toString(); }
 }
