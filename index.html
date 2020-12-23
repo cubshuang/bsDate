@@ -26,7 +26,7 @@
 	function getBsDate(){
 		try{
 			var s="";
-			var d=document.getElementById("today").value;
+			var d=document.getElementById("today").value.replace('/0','/').replace('/0','/')
 			bsDate.setDate(d);
 			if (d!=bsDate.Today()){
 				document.getElementById("today").focus();
