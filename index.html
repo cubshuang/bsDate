@@ -68,7 +68,8 @@
 				s+="<tr>";
 				s+="<td>民國格式</td><td>" + bsDate.DateToCH(d) + "</td>"; 
 				s+="<td>民國格式</td><td>" + bsDate.DateToCHStr(d) + "</td>"; 
-				s+="<td>亂數字串</td><td>" + bsDate.RndNum() + "</td>"; 
+				s+="<td>n個月後日期(n=6)</td><td>" + bsDate.qryMonthDate(6) + "</td>"; 
+				s+="<td>亂數字串</td><td colspan='3'>" + bsDate.RndNum() + "</td>"; 
 				s+="</tr>";
 				s+="</table>";
 				s+="</table>";
