@@ -40,13 +40,9 @@ var bsDate = {
     DateToString: function (showDate) { var d = new Date(showDate); return d.getFullYear() + "/" + (d.getMonth() + 1) + "/" + d.getDate();},
     DateToCH: function (showDate) { var d = new Date(showDate); return (d.getFullYear() - 1911) + "/" + (d.getMonth() + 1) + "/" + d.getDate(); },
     DateToCHStr: function (showDate) { var s = this.DateToCH(showDate).split("/"); return (s[0].length > 2 ? "" : "0") + s[0] + (s[1].length > 1 ? "" : "0") + s[1] + (s[2].length > 1 ? "" : "0") + s[2]; },
-    RndNum: function () { var d = new Date(); return d.getFullYear().toString() + d.getMonth().toString() + d.getDate().toString() + d.getHours().toString() + d.getMinutes().toString() + d.getSeconds().toString() + d.getMilliseconds().toString(); },
+    RndNum: function () { var d = new Date(); return d.getFullYear().toString() + (d.getMonth()+1).toString() + d.getDate().toString() + d.getHours().toString() + d.getMinutes().toString() + d.getSeconds().toString() + d.getMilliseconds().toString(); },
     //OtherDateCompute
     isLeapYear: function (year) { return (((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0)); },
     getDaysInMonth: function (year, month) { return [31, (this.isLeapYear(year) ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month]; },
-    qryMonthDate:function (addmth) {
-        var now = this.Now, y = this.Year(), m = this.Month(), d = this.Day();
-        now.setDate(1);  now.setMonth(m + addmth); now.setDate(Math.min(d, this.getDaysInMonth(y,m)));
-        return this.DateToString(now);
-    }
+    qryMonthDate:function (addmth) { var now = this.Now, nd = now.getDate(); now.setDate(1); now.setMonth(m + addmth);  now.setDate(Math.min(nd, this.getDaysInMonth(now.getFullYear(),now.getMonth()))); return this.DateToString(now);}
 }
