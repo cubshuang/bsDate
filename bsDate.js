@@ -44,5 +44,5 @@ var bsDate = {
     //OtherDateCompute
     isLeapYear: function (year) { return (((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0)); },
     getDaysInMonth: function (year, month) { return [31, (this.isLeapYear(year) ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month]; },
-    qryMonthDate:function (addmth) { var now = this.Now, nd = now.getDate(); now.setDate(1); now.setMonth(now.getMonth() + addmth);  now.setDate(Math.min(nd, this.getDaysInMonth(now.getFullYear(),now.getMonth()))); return this.DateToString(now);}
+    qryMonthDate: function (addmth) {var now = new Date(this.Now);nd = now.getDate();now.setDate(1);now.setMonth(now.getMonth() + addmth);now.setDate(Math.min(nd, this.getDaysInMonth(now.getFullYear(), now.getMonth()))); return this.DateToString(now);}
 }
