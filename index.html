@@ -1,14 +1,19 @@
 <!DOCTYPE html>
-<html>
-<script src="bsDate.js"></script>
-<style>
-	tr:nth-of-type(1) td:nth-of-type(1){ background-color:#FF80C0;}
-	tr:nth-of-type(1) td:nth-of-type(2){ color:#FF3E3E;}
-	td{padding:10px;}
-	td:nth-of-type(odd){ background-color:#0079F2;}
-	td:nth-of-type(even){ background-color:#FFFFD9;}
-	body{margin:20px;}
-</style>
+<html lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>日期函數</title>
+	<script src="bsDate.js"></script>
+	<style>
+		tr:nth-of-type(1) td:nth-of-type(1){ background-color:#FF80C0;}
+		tr:nth-of-type(1) td:nth-of-type(2){ color:#FF3E3E;}
+		td{padding:10px;}
+		td:nth-of-type(odd){ background-color:#0079F2;}
+		td:nth-of-type(even){ background-color:#FFFFD9;}
+		body{margin:20px;}
+	</style>
+</head>
 <body>
 <h2>日期函數bsDate</h2>
 <p>
@@ -26,9 +31,9 @@
 	function getBsDate(){
 		try{
 			var s="";
-			var d=document.getElementById("today").value.replace('/0','/').replace('/0','/')
+			var d=document.getElementById("today").value.replace('/0','/').replace('/0','/');
 			bsDate.setDate(d);
-			if (d!=bsDate.Today()){
+			if (d!=bsDate.Today().replace('/0','/').replace('/0','/')){
 				document.getElementById("today").focus();
 				s+="日期輸入有誤!!請重新輸入!!"
 			}else{
